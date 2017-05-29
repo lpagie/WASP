@@ -377,6 +377,10 @@ def main(bedpe_filename, snp_dir=None):
             frag_base = frag_base + [iupac(snp_tab.snp_allele1[i], snp_tab.snp_allele2[i]) for i in snp_idx]
             # frag_base = frag_base + [snp_tab.snp_allele1[i]+snp_tab.snp_allele2[i] for i in snp_idx]
             snp_pos = snp_pos + [snp_tab.snp_pos[i] for i in snp_idx]
+            # check whether the unread positions are in fact homogeneous, either reference or alternative
+            # if so, output 4/5 for homozygous ref/homozyous alternative
+            # THIS IS NOT GOING TO WORK; I only know at this point what allelic variants are in 1000-genomes (4) but not for this particular genome
+           # tt = [snp_tab.snp_allele1[i] == snp_tab.snp_allele2[i]
             snp_var = snp_var + [3 for  i in snp_idx]
             snp_ind += snp_idx
 
